@@ -36,7 +36,7 @@ Hello message sent.
 Server : Hello from <IP>
 ```
 
-where <IP> is the internal IP of the pod (visible through `kubectl get pods -o wide`). The problem with this is that <IP> will not change, even as the HPA scales up more pods to deal with the "load" from the client.
+where `<IP>` is the internal IP of the pod (visible through `kubectl get pods -o wide`). The problem with this is that `<IP>` will not change, even as the HPA scales up more pods to deal with the "load" from the client.
 
 If the CPU utilisation of the worker pods is observed through `kubectl top pods` then it will be observed that only one of the worker pods is receiving and responding to the UDP messages, since only one pod will have a CPU utilisation above 0 milli-cores, while all the other pods will have a utilisation of 0 milli-cores. (Note that it may take a few minutes for the utilisation of newly-created pods to drop to zero).
   
